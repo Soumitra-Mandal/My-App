@@ -1,56 +1,58 @@
 import React from 'react';
 import './App.css';
-import {useState} from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { connect } from 'react-redux';
 
-const contacts =['Soumi'];
-function AddPersonForm(props) {
-  const [ person, setPerson ] = useState("");
 
-  function handleChange(e) {
-    setPerson(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    props.handleSubmit(person);
-    setPerson('');
-    e.preventDefault();
-  }
-  return (
-    <form onSubmit={handleSubmit}>
-    <input type="text" 
-    placeholder="Add new contact" 
-    onChange={handleChange} 
-    value={person} />
-    <button type="submit">Add</button>
-    </form>
-    );
-}
-function PeopleList(props) {
-  const arr = props.data;
-  const listItems = arr.map((val, index) =>
-    <li key={index}>{val}</li>
-  );
-  return <ul>{listItems}</ul>;
+// Action creator
+function incrementCounter(num) {
+  return { type: 'INCREMENT', num: num }
 }
 
-function ContactManager(props) {
-  const [contacts, setContacts] = useState(props.data);
-  function addPerson(name) {
-    setContacts([...contacts, name]);
+const initialState = {
+  count: 0
+};
+// Reducer function
+function reducer(state = initialState, action) {
+  switch(action.type) {
+    case 'INCREMENT':
+      return { count: state.count + action.num };
+    default:
+      return state;
   }
+}
+function Counter(props) {
+  function handleClick() {
+    props.incrementCounter(1);
+  }
+    return <div>
+    <p>{props.count}</p>
+    <button onClick={handleClick}>Increment</button>
+    </div>;
+}
 
-  return (
-    <div>
-      <AddPersonForm handleSubmit={addPerson}/>
-      <PeopleList data={contacts} />
-    </div>
-  );
-} 
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+const mapDispatchToProps = {
+  incrementCounter
+}
+
+const store = createStore(reducer);
+
+const Counters = connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+const el = <Provider store={store}>
+          <Counters/>
+        </Provider>; 
 
 function App() {
   return (
     <div className="App">
-    <ContactManager data={contacts} />
+      {el}
     </div>
   );
 }
