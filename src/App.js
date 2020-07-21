@@ -9,7 +9,9 @@ import { connect } from 'react-redux';
 function incrementCounter(num) {
   return { type: 'INCREMENT', num: num }
 }
-
+function decrementCounter(num){
+  return {type:'DECREMENT' , num:num}
+}
 const initialState = {
   count: 0
 };
@@ -18,6 +20,8 @@ function reducer(state = initialState, action) {
   switch(action.type) {
     case 'INCREMENT':
       return { count: state.count + action.num };
+    case 'DECREMENT':
+      return {count: state.count - action.num};
     default:
       return state;
   }
@@ -26,9 +30,14 @@ function Counter(props) {
   function handleClick() {
     props.incrementCounter(1);
   }
+  function handleClick2(){
+    props.decrementCounter(1);
+  }
+
     return <div>
     <p>{props.count}</p>
     <button onClick={handleClick}>Increment</button>
+    <button onClick={handleClick2}>Decrement</button>
     </div>;
 }
 
@@ -38,16 +47,17 @@ function mapStateToProps(state) {
   };
 }
 const mapDispatchToProps = {
-  incrementCounter
+  incrementCounter,
+  decrementCounter
 }
 
 const store = createStore(reducer);
 
-const Counters = connect(mapStateToProps, mapDispatchToProps)(Counter);
+const Counters = connect(mapStateToProps,mapDispatchToProps)(Counter);
 
 const el = <Provider store={store}>
           <Counters/>
-        </Provider>; 
+        </Provider>;
 
 function App() {
   return (
@@ -58,8 +68,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
