@@ -15,8 +15,11 @@ function Counter(){
     setCounter(count-1);
   }
   function multiply() {
-    if(Math.abs(count*2) >1000){
+    if((count*2)>=1000){
       setCounter(1000);
+    }
+    else if(count*2<=-1000){
+      setCounter(-1000);
     }
     else setCounter(count*2);
     
