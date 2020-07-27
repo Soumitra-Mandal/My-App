@@ -1,14 +1,50 @@
 h1{
   text-align: center;
-  color:green;
+  position: relative;
+  left: 0;
+  font-size:25px;
+  border-left: solid 2px black;
+  margin: 4px 0;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 1;
 }
 
-h2{
-  text-align: center;
-  color: black;
+
+h1:hover{
+  left:10px;
 }
 
-h2:hover{
-  color: white;
-  background-color: black;
+h1::before{
+  content: '';
+ position: absolute;
+ height: 100%;
+ width: 30%;
+ background-color: black;
+ transform: scaleX(0);
+ transform-origin: left;
+ transition: 0.5s;
+}
+
+h1:hover::before{
+  transform: scaleX(1);
+
+}
+
+h1 span{
+  padding: 8px;
+  position: relative;
+  display: inline-block;
+  transition: 0.5s;
+  z-index: 1
+}
+h1:hover span{
+  color: aliceblue;
+
+}
+
+button{
+  width:10vw;
+  position: absolute;
+  left:45vw;
 }
