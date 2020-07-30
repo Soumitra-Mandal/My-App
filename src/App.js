@@ -8,22 +8,22 @@ import './App.css';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {favoritecolor: "red"};
+    this.state = {favoritecolor: "red", color:"red"};
   }
   
-  changeColor = () => {
-    if(this.state.favoritecolor==='red')
-    this.setState({favoritecolor: "blue"});
+  componentDidMount = () => {
+    setInterval(()=>{
+      if(this.state.favoritecolor==='red')
+    this.setState({favoritecolor: "blue", color:'blue'});
     else
-    this.setState({favoritecolor: "red"});
-
+    this.setState({favoritecolor: "red", color:'red'});
+    },1000);
 
   }
   render() {
     return (
       <div>
-      <h1><span>My Favorite Color is {this.state.favoritecolor}</span></h1>
-      <button type="button" onClick={this.changeColor}>Change color</button>
+      <h1 style={{color: this.state.color}}><span>My Favorite Color is {this.state.favoritecolor}</span></h1>
       </div>
     );
   }
