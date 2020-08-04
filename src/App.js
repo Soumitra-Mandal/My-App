@@ -8,23 +8,29 @@ import './App.css';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {favoritecolor: "red", color:"red"};
+    this.state = {background:this.props.choice,shadow:"none",};
   }
-  
-  componentDidMount = () => {
-    setInterval(()=>{
-      if(this.state.favoritecolor==='red')
-    this.setState({favoritecolor: "blue", color:'blue'});
+  colorswitch=()=>{
+    var sh = '0 0 10px #fff, 0 0 20px #fff, 0 0 30px '+this.props.choice+', 0 0 40px '+this.props.choice+', 0 0 50px '+this.props.choice+', 0 0 60px '+this.props.choice+', 0 0 70px '+this.props.choice;
+    if(this.state.background===this.props.choice)
+    this.setState({background:"white",shadow:sh});
     else
-    this.setState({favoritecolor: "red", color:'red'});
-    },1000);
+    this.setState({background:this.props.choice,shadow:'none'});
+
 
   }
+ 
   render() {
+    var mystyle={
+      backgroundColor:this.state.background,
+      boxShadow:this.state.shadow
+    };
     return (
-      <div>
-      <h1 style={{color: this.state.color}}><span>My Favorite Color is {this.state.favoritecolor}</span></h1>
+      <>
+      <div className ='light' style={mystyle}>
       </div>
+     <button id="bn" onClick={this.colorswitch}>Switch {this.props.choice}</button>
+     </>
     );
   }
 }
@@ -33,7 +39,13 @@ class Header extends React.Component {
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header choice='red'/>
+      <Header choice='green'/>
+      <Header choice='blue'/>
+      <Header choice='yellow'/>
+      <Header choice='magenta'/>
+      <Header choice='cyan'/>
+      <Header choice='aquamarine'/>
     </div>
   );
 }
