@@ -1,53 +1,57 @@
 import React from 'react';
 import './App.css';
-//import {useState} from 'react';
+//import { useEffect, useState } from 'react';
 //import { Provider } from 'react-redux';
 //import { createStore } from 'redux';
 //import { connect } from 'react-redux';
 
-class Header extends React.Component {
+var interval='';
+class Automate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {background:this.props.choice,shadow:"none",};
+    this.state = {time: 0, isstopped:true };
   }
-  colorswitch=()=>{
-    var sh = '0 0 10px #fff, 0 0 20px #fff, 0 0 30px '+this.props.choice+', 0 0 40px '+this.props.choice+', 0 0 50px '+this.props.choice+', 0 0 60px '+this.props.choice+', 0 0 70px '+this.props.choice;
-    if(this.state.background===this.props.choice)
-    this.setState({background:"white",shadow:sh});
-    else
-    this.setState({background:this.props.choice,shadow:'none'});
 
 
+ resetTimer= () => {
+  this.setState({time:0});
+}
+
+startTimer=()=>{
+  if(this.state.isstopped===true){
+    interval = setInterval(()=>{   
+      this.setState({time: this.state.time + 1});        
+},1000);
   }
- 
+  else{
+    clearInterval(interval);
+  }
+this.setState({isstopped:!this.state.isstopped});
+
+}
   render() {
-    var mystyle={
-      backgroundColor:this.state.background,
-      boxShadow:this.state.shadow
-    };
     return (
-      <>
-      <div className ='light' style={mystyle}>
-      </div>
-     <button id="bn" onClick={this.colorswitch}>Switch {this.props.choice}</button>
-     </>
+      <div>
+      <h1>{this.state.time}s</h1>
+      <button className="stop" onClick ={this.startTimer}>{this.state.isstopped ? 'START' : 'STOP'}</button>
+      <button className="reset" onClick={this.resetTimer}>RESET</button>
+    </div>
     );
   }
 }
 
 
+
+
+
 function App() {
   return (
     <div className="App">
-      <Header choice='red'/>
-      <Header choice='green'/>
-      <Header choice='blue'/>
-      <Header choice='yellow'/>
-      <Header choice='magenta'/>
-      <Header choice='cyan'/>
-      <Header choice='aquamarine'/>
+      <Automate/>
     </div>
   );
 }
 
+
 export default App;
+

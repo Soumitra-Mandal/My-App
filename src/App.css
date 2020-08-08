@@ -1,18 +1,38 @@
-body{
-  margin:0;
-  background-color: black;
+.App{
+    margin:auto;
+    width:28vw;
+    height:40vh;
+    background-color: #2832c2;
+    border-radius: 10px;
 }
+.stop,.reset{
+    position: relative;
+    top:2vh;
+    width: 8vw;
+    height:5vh;
+    margin-left:4vw;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: #48aaad;
+    border-radius: 1px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30), 0 10px 8px rgba(0, 0, 0, 0.22);
+    border:none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+}
+.stop:hover,.reset:hover{
+    background-color: #016064;
+    cursor: pointer;
 
-.light{
-  height:30px;
-  width:30px;
-  border-radius: 50%;
-  background-color: white;
-  float:left;
-  margin:40px;
- 
 }
-#bn{
-  float:left;
-  margin-top:40px;
+h1{
+    color:white;
+    text-align: center;
+    padding-top:5vh;
+    font-size: 9vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}body{
+    margin: 0;
+    background-color:#23272f;
 }

@@ -7,6 +7,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    <head>
+    <title>Timer</title>
+    </head>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
