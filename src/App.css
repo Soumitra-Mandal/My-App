@@ -17,7 +17,7 @@
     border-radius: 1px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30), 0 10px 8px rgba(0, 0, 0, 0.22);
     border:none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     outline: none;
 }
 .stop:hover,.reset:hover{
