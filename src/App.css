@@ -2,7 +2,7 @@
     margin:auto;
     width:28vw;
     height:40vh;
-    background-color: #2832c2;
+    background-color: whitesmoke;
     border-radius: 10px;
 }
 .stop,.reset{
@@ -15,7 +15,7 @@
     color: aliceblue;
     background-color: #48aaad;
     border-radius: 1px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30), 0 10px 8px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32), 0 8px 6px rgba(0, 0, 0, 0.28);
     border:none;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     outline: none;
@@ -26,7 +26,7 @@
 
 }
 h1{
-    color:white;
+    color:rgb(50, 48, 48);
     text-align: center;
     padding-top:5vh;
     font-size: 9vh;
