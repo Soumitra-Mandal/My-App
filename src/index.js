@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
+import Login from './login';
+//import Comments from './Comments';
 import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <head>
-    <title>Timer</title>
-    </head>
-    <App />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

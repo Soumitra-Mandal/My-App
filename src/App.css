@@ -1,8 +1,11 @@
 .App{
     margin:auto;
     width:28vw;
-    height:40vh;
+    height:30vh;
     background-color: whitesmoke;
+    position: absolute;
+    left:36vw;
+    top:25vh;
     border-radius: 10px;
 }
 .stop,.reset{
@@ -25,14 +28,19 @@
     cursor: pointer;
 
 }
-h1{
+#head{
     color:rgb(50, 48, 48);
     text-align: center;
     padding-top:5vh;
     font-size: 9vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 
 }body{
     margin: 0;
-    background-color:#23272f;
-}
+    height:100%;
+    background-color: #734ae8;
+    background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%);}
+    html{
+        margin: 0;
+    height:100%;
+    }
