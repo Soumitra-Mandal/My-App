@@ -35,7 +35,7 @@ h1{
     #submit{
     position: absolute;
     left:47.3vw;
-    top:33vh;
+    top:34vh;
     width: 6vw;
     height:4vh;
     font-size: 2vh;
@@ -80,9 +80,12 @@ h1{
         padding: 3px;
     }
     li{
+    margin-top:5px;
     margin-bottom: 5px;
     width: 28vw;
-    position: absolute;
-    top:6vh;
-    left:4.5vw;
+    }
+    ol{
+        position: absolute;
+        top:40vh;
+        left:37.5vw;
     }
